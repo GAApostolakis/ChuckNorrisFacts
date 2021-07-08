@@ -7,7 +7,7 @@
 protocol SearchViewModel {
     var didStartActivity: (() -> Void)? { get set }
     var didEndActivity: (() -> Void)? { get set }
-    var displayError: ((String) -> Void)? { get set }
+    var didFailToFetch: ((String) -> Void)? { get set }
     var changeCategory: ((String) -> Void)? { get set }
     
     func fetchRandomFact()
@@ -21,21 +21,20 @@ final class SearchViewModelImp1: SearchViewModel {
     
     var didStartActivity: (() -> Void)?
     var didEndActivity: (() -> Void)?
-    var displayError: ((String) -> Void)?
+    var didFailToFetch: ((String) -> Void)?
     var changeCategory: ((String) -> Void)?
     //MARK: - Variables & Init
     
-    var fact: Fact?
-    var facts: Facts?
     let categoriesList = CategoriesList()
     var index: Int = 0
     
     var repository: Repository
     let coordinator: Coordinator
-    
-    init (repository: Repository, coordinator: Coordinator) {
+    var facts: Facts
+    init (repository: Repository, coordinator: Coordinator, facts: Facts) {
         self.repository = repository
         self.coordinator = coordinator
+        self.facts = facts
     }
     //MARK: - Methods
     
@@ -43,14 +42,16 @@ final class SearchViewModelImp1: SearchViewModel {
         didStartActivity?()
         repository.fetchRandom(sucessHandler: {[weak self] fact in
             self?.didEndActivity?()
-            self?.fact = fact
-            print(fact.value)
-            if !(fact.categories!.isEmpty) {
-                print(fact.categories?[0])
+            self?.facts.result.append(fact)
+            self?.facts.total += 1
+            let safeFacts = Facts(total: 1, result: [fact])
+            self?.facts.result.insert(contentsOf: safeFacts.result, at: 0)
+            if let safeFacts = self?.facts {
+                self?.coordinator.dismissToHome(facts: safeFacts)
             }
         }, errorHandler: {[weak self] error in
             self?.didEndActivity?()
-            self?.displayError?(error)
+            self?.didFailToFetch?(error)
         })
     }
     
@@ -72,13 +73,15 @@ final class SearchViewModelImp1: SearchViewModel {
         didStartActivity?()
         repository.fetchCategory(category: categoriesList.categories[index], sucessHandler: {[weak self] fact in
             self?.didEndActivity?()
-            self?.fact = fact
-            print(fact.value)
-            print(fact.categories?[0])
-            print("Category\(fact.categories?.count), \n Value: \(fact.value!)")
+            let safeFacts = Facts(total: 1, result: [fact])
+            self?.facts.result.insert(contentsOf: safeFacts.result, at: 0)
+            self?.facts.total += 1
+            if let safeFacts = self?.facts {
+                self?.coordinator.dismissToHome(facts: safeFacts)
+            }
         }, errorHandler: {[weak self] error in
             self?.didEndActivity?()
-            self?.displayError?(error)
+            self?.didFailToFetch?(error)
         })
     }
     
@@ -86,16 +89,18 @@ final class SearchViewModelImp1: SearchViewModel {
         didStartActivity?()
         repository.fetchSearch(query: query, sucessHandler: {[weak self] facts in
             self?.didEndActivity?()
-            self?.facts = facts
-            if !(facts.result[0].categories![0].isEmpty) {
-                print("Total:\(facts.total!), Result 0: Category: \(facts.result[0].categories![0]), Value:\(facts.result[0].value!)")
-                if !(facts.result[facts.result.count].categories![0].isEmpty) {
-                    print("Total:\(facts.total!), Result 0: Category: \(facts.result[0].categories![0]), Value:\(facts.result[0].value!)")
+            if facts.total > 0 {
+                self?.facts.total += facts.total
+                self?.facts.result.insert(contentsOf: facts.result, at: 0)
+                if let safeFacts = self?.facts {
+                    self?.coordinator.dismissToHome(facts: safeFacts)
                 }
+            }else {
+                self?.didFailToFetch?("No Results to the Query")
             }
         }, errorHandler: {[weak self] error in
             self?.didEndActivity?()
-            self?.displayError?(error)
+            self?.didFailToFetch?(error)
         })
     }
     

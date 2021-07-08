@@ -14,9 +14,10 @@
 		C8C8E86926965D7700698616 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C8E86726965D7700698616 /* TableViewCell.swift */; };
 		C8C8E86A26965D7700698616 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8C8E86826965D7700698616 /* TableViewCell.xib */; };
 		C8C8E86F2696A5D700698616 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C8E86E2696A5D700698616 /* HomeViewModel.swift */; };
+		C8C8E874269705F500698616 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C8E873269705F500698616 /* UIViewController.swift */; };
+		C8C8E87F26970DB500698616 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8C8E87E26970DB500698616 /* Assets.xcassets */; };
 		C8F9544C2690E8A800D2E9D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F9544B2690E8A800D2E9D4 /* AppDelegate.swift */; };
 		C8F9544E2690E8A800D2E9D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F9544D2690E8A800D2E9D4 /* SceneDelegate.swift */; };
-		C8F954552690E8AC00D2E9D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8F954542690E8AC00D2E9D4 /* Assets.xcassets */; };
 		C8F954582690E8AC00D2E9D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8F954562690E8AC00D2E9D4 /* LaunchScreen.storyboard */; };
 		C8F954632690E8AC00D2E9D4 /* ChuckNorrisFactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F954622690E8AC00D2E9D4 /* ChuckNorrisFactsTests.swift */; };
 		C8F9546E2690E8AD00D2E9D4 /* ChuckNorrisFactsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F9546D2690E8AD00D2E9D4 /* ChuckNorrisFactsUITests.swift */; };
@@ -28,7 +29,7 @@
 		C8F954CE26938BF900D2E9D4 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F954CD26938BF900D2E9D4 /* AppCoordinator.swift */; };
 		C8F954DC26938C9100D2E9D4 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8F954DA26938C9100D2E9D4 /* SearchViewController.xib */; };
 		C8F954E72693C09C00D2E9D4 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F954E62693C09C00D2E9D4 /* SearchViewModel.swift */; };
-		C8F954F5269476CB00D2E9D4 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F954F4269476CB00D2E9D4 /* TextField.swift */; };
+		C8F954F5269476CB00D2E9D4 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F954F4269476CB00D2E9D4 /* UITextField.swift */; };
 		C8F955022694908B00D2E9D4 /* CategoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F955012694908B00D2E9D4 /* CategoriesList.swift */; };
 		C8F9551F2694D80B00D2E9D4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F9551E2694D80B00D2E9D4 /* SearchViewController.swift */; };
 		C8F955242694DB4C00D2E9D4 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F955232694DB4C00D2E9D4 /* UIButton.swift */; };
@@ -61,10 +62,11 @@
 		C8C8E86726965D7700698616 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C8C8E86826965D7700698616 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		C8C8E86E2696A5D700698616 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		C8C8E873269705F500698616 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		C8C8E87E26970DB500698616 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8F954482690E8A800D2E9D4 /* ChuckNorrisFacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChuckNorrisFacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8F9544B2690E8A800D2E9D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8F9544D2690E8A800D2E9D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C8F954542690E8AC00D2E9D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8F954572690E8AC00D2E9D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8F954592690E8AC00D2E9D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8F9545E2690E8AC00D2E9D4 /* ChuckNorrisFactsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChuckNorrisFactsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,7 +83,7 @@
 		C8F954CD26938BF900D2E9D4 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		C8F954DA26938C9100D2E9D4 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		C8F954E62693C09C00D2E9D4 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
-		C8F954F4269476CB00D2E9D4 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		C8F954F4269476CB00D2E9D4 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		C8F955012694908B00D2E9D4 /* CategoriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesList.swift; sourceTree = "<group>"; };
 		C8F9551E2694D80B00D2E9D4 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C8F955232694DB4C00D2E9D4 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -155,13 +157,13 @@
 		C8F9544A2690E8A800D2E9D4 /* ChuckNorrisFacts */ = {
 			isa = PBXGroup;
 			children = (
+				C8C8E87E26970DB500698616 /* Assets.xcassets */,
 				C8F954F3269476BA00D2E9D4 /* Extension */,
 				C8F954D826938C7300D2E9D4 /* Screens */,
 				C8F954C726938BBD00D2E9D4 /* Coordinator */,
 				C8F95490269134A200D2E9D4 /* Network */,
 				C8F9544B2690E8A800D2E9D4 /* AppDelegate.swift */,
 				C8F9544D2690E8A800D2E9D4 /* SceneDelegate.swift */,
-				C8F954542690E8AC00D2E9D4 /* Assets.xcassets */,
 				C8F954562690E8AC00D2E9D4 /* LaunchScreen.storyboard */,
 				C8F954592690E8AC00D2E9D4 /* Info.plist */,
 			);
@@ -253,9 +255,10 @@
 		C8F954F3269476BA00D2E9D4 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				C8F954F4269476CB00D2E9D4 /* TextField.swift */,
+				C8F954F4269476CB00D2E9D4 /* UITextField.swift */,
 				C8F955232694DB4C00D2E9D4 /* UIButton.swift */,
 				C8C8E85B269512DF00698616 /* String.swift */,
+				C8C8E873269705F500698616 /* UIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -395,9 +398,9 @@
 			files = (
 				C8F954582690E8AC00D2E9D4 /* LaunchScreen.storyboard in Resources */,
 				C8C8E86A26965D7700698616 /* TableViewCell.xib in Resources */,
-				C8F954552690E8AC00D2E9D4 /* Assets.xcassets in Resources */,
 				C8F954DC26938C9100D2E9D4 /* SearchViewController.xib in Resources */,
 				C8C8E8632695412D00698616 /* HomeViewController.xib in Resources */,
+				C8C8E87F26970DB500698616 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,9 +469,10 @@
 			files = (
 				C8C8E86F2696A5D700698616 /* HomeViewModel.swift in Sources */,
 				C8F954C926938BCE00D2E9D4 /* Coordinator.swift in Sources */,
+				C8C8E874269705F500698616 /* UIViewController.swift in Sources */,
 				C8C8E86926965D7700698616 /* TableViewCell.swift in Sources */,
 				C8F955242694DB4C00D2E9D4 /* UIButton.swift in Sources */,
-				C8F954F5269476CB00D2E9D4 /* TextField.swift in Sources */,
+				C8F954F5269476CB00D2E9D4 /* UITextField.swift in Sources */,
 				C8F954B82693793600D2E9D4 /* Facts.swift in Sources */,
 				C8C8E85C269512DF00698616 /* String.swift in Sources */,
 				C8C8E8622695412D00698616 /* HomeViewController.swift in Sources */,

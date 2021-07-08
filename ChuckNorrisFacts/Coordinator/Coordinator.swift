@@ -13,5 +13,6 @@ protocol Coordinator {
     var repository: Repository { get set }
     
     func start ()
-    func showSearch (completion: @escaping () -> Void)
+    func presentSearch (facts: Facts, completion: @escaping () -> Void)
+    func dismissToHome (facts: Facts)
 }

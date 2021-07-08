@@ -10,8 +10,9 @@ import UIKit
 class TableViewCell: UITableViewCell {
     @IBOutlet weak var factLabel: UILabel!
     @IBOutlet weak var categoriesLabel: UILabel!
-    @IBOutlet weak var globalView: UIView!
-    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var urlImage: UIImageView!
+    
+    var url:URL?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,6 +23,9 @@ class TableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    @IBAction func shareSelected(_ sender: UIButton) {
+        UIPasteboard.general.url = url
     }
     
 }

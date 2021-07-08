@@ -19,17 +19,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="aE7-rR-lzZ" userLabel="quoteStack">
-                        <rect key="frame" x="20" y="0.0" width="334" height="51.5"/>
+                        <rect key="frame" x="20" y="0.0" width="334" height="68"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chuck-norris Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Nej-Ie-Eg9">
-                                <rect key="frame" x="0.0" y="3" width="46" height="46"/>
+                                <rect key="frame" x="0.0" y="11" width="46" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="A0p-FO-mO2"/>
                                     <constraint firstAttribute="width" constant="46" id="kSF-eF-cUG"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chuck Norris invented taking credit for other people's inventions. But he has also invented heaps of stuff." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAy-WI-qre">
-                                <rect key="frame" x="76" y="1.5" width="258" height="49"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAy-WI-qre" userLabel="factLabel">
+                                <rect key="frame" x="76" y="34" width="258" height="0.0"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="0.47450980392156861" green="0.47450980392156861" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -37,18 +37,18 @@
                         </subviews>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories:" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjk-yW-fd9">
-                        <rect key="frame" x="20" y="53.5" width="72" height="16.5"/>
+                        <rect key="frame" x="20" y="62" width="72" height="16.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animal" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYl-2v-njl">
-                        <rect key="frame" x="97" y="53.5" width="43" height="16.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYl-2v-njl" userLabel="categoriesLabel">
+                        <rect key="frame" x="97" y="70" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="dmB-8C-m8C">
+                    <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="dmB-8C-m8C" userLabel="lineBreak">
                         <rect key="frame" x="20" y="81" width="334" height="1"/>
                         <viewLayoutGuide key="safeArea" id="NMJ-th-zF8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -56,6 +56,19 @@
                             <constraint firstAttribute="height" constant="1" id="lW8-RO-tHl"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LMd-aM-Ay5" userLabel="shareButton">
+                        <rect key="frame" x="331" y="54" width="23" height="23"/>
+                        <color key="backgroundColor" name="BackGround"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="SRA-ti-Nbb"/>
+                            <constraint firstAttribute="width" constant="23" id="sdr-Cf-2Bg"/>
+                        </constraints>
+                        <color key="tintColor" name="SubTitles"/>
+                        <state key="normal" image="arrowshape.turn.up.right.fill" catalog="system"/>
+                        <connections>
+                            <action selector="shareSelected:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="sqo-my-fel"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" name="BackGround"/>
                 <constraints>
@@ -68,18 +81,29 @@
                     <constraint firstItem="dmB-8C-m8C" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="IuL-e2-HYO"/>
                     <constraint firstItem="dmB-8C-m8C" firstAttribute="top" secondItem="DYl-2v-njl" secondAttribute="bottom" constant="11" id="KRm-HM-ME4"/>
                     <constraint firstItem="sjk-yW-fd9" firstAttribute="centerY" secondItem="DYl-2v-njl" secondAttribute="centerY" id="VDs-rM-vA7"/>
+                    <constraint firstItem="DYl-2v-njl" firstAttribute="top" secondItem="LMd-aM-Ay5" secondAttribute="bottom" constant="-7" id="cVb-nY-nn4"/>
                     <constraint firstItem="aE7-rR-lzZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sY4-Vk-kE4"/>
+                    <constraint firstItem="LMd-aM-Ay5" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-20" id="uav-x2-0rr"/>
                     <constraint firstItem="dmB-8C-m8C" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" constant="-6" id="vel-c6-B3a"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="categoriesLabel" destination="DYl-2v-njl" id="Wpm-Zc-1a1"/>
+                <outlet property="factLabel" destination="TAy-WI-qre" id="HDJ-3N-puB"/>
+                <outlet property="urlImage" destination="Nej-Ie-Eg9" id="GON-8Z-oMF"/>
+            </connections>
             <point key="canvasLocation" x="-49.275362318840585" y="115.17857142857142"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="chuck-norris Logo" width="15" height="15"/>
         <namedColor name="BackGround">
             <color red="0.10980392156862745" green="0.11764705882352941" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SubTitles">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

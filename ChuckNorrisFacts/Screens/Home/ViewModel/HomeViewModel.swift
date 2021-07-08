@@ -9,8 +9,13 @@ import Foundation
 protocol HomeViewModel {
     var didStartActivity: (() -> Void)? { get set }
     var didEndActivity: (() -> Void)? { get set }
+    var didAddNewData: (() -> Void)? { get set }
+    
+    var facts: Facts { get set }
     
     func presentSearch ()
+    func reloadTableView ()
+    func clearFacts ()
 }
 
 class HomeViewModelImp1: HomeViewModel {
@@ -18,21 +23,34 @@ class HomeViewModelImp1: HomeViewModel {
     
     var coordinator: Coordinator
     var repository: Repository
+    var facts: Facts
     
-    init(coordinator: Coordinator, repository: Repository) {
+    init(coordinator: Coordinator, repository: Repository, facts: Facts) {
         self.coordinator = coordinator
         self.repository = repository
+        self.facts = facts
     }
     
     var didStartActivity: (() -> Void)?
     var didEndActivity: (() -> Void)?
+    var didAddNewData: (() -> Void)?
     
     //MARK: - Methods
     
     func presentSearch() {
         didStartActivity?()
-        coordinator.showSearch(completion: {
+        coordinator.presentSearch(facts: facts, completion: {
             self.didEndActivity?()
         })
     }
+    
+    func reloadTableView() {
+        didAddNewData?()
+    }
+    
+    func clearFacts() {
+        facts = Facts(total: 0, result: [])
+        didAddNewData?()
+    }
+    
 }

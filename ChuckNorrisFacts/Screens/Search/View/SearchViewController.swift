@@ -96,11 +96,13 @@ class SearchViewController: UIViewController {
     //MARK: - Methods
     
     func setUpUI() {
-        searchTextField.colorBorder(UIColor.black.cgColor, radius: 4.0)
+        hideKeyboardWhenTapHappens()
+        searchTextField.delegate = self
+        searchTextField.colorBorder(UIColor.systemBackground.cgColor, radius: searchTextField.bounds.height/2)
         randomButton.roundButton(radius: randomButton.bounds.height/2)
-        categoryButton.roundButton(radius: randomButton.bounds.height/2)
-        categoryLabel.layer.borderColor = UIColor.black.cgColor
-        categoryLabel.layer.cornerRadius = 20.0
+        categoryButton.roundButton(radius: categoryButton.bounds.height/2)
+        searchButton.roundButton(radius: searchButton.bounds.height/2)
+        categoryLabel.layer.cornerRadius = categoryLabel.bounds.height/2
     }
     
     func setBindings() {
@@ -113,5 +115,17 @@ class SearchViewController: UIViewController {
         viewModel.changeCategory = {[weak self] category in
             self?.categoryLabel.text = category.proper()
         }
+        viewModel.didFailToFetch = {[weak self] errorMessage in
+            let alert = UIAlertController(title: "Error:", message: errorMessage, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self?.present(alert, animated: true, completion: nil)
+        }
+    }
+}
+
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        resignFirstResponder()
+        return true
     }
 }

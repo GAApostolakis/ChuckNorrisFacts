@@ -18,18 +18,30 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
-        let repository = RepositoryChuckyFacts()
-        let viewModel = HomeViewModelImp1(coordinator: self, repository: repository)
+        let facts = Facts(total: 0, result: [])
+        let viewModel = HomeViewModelImp1(coordinator: self, repository: repository, facts: facts)
         let homeVC = HomeViewController(viewModel: viewModel)
         currentVC = homeVC
         window.rootViewController = homeVC
         window.makeKeyAndVisible()
     }
     
-    func showSearch (completion: @escaping () -> Void) {
-        let viewModel = SearchViewModelImp1(repository: repository, coordinator: self)
+    func presentSearch (facts: Facts, completion: @escaping () -> Void) {
+        let viewModel = SearchViewModelImp1(repository: repository, coordinator: self, facts: facts)
         let searchVC = SearchViewController(viewModel: viewModel)
         searchVC.modalPresentationStyle = .popover
-        currentVC?.present(searchVC, animated: true, completion: completion)
+        currentVC?.present(searchVC, animated: true, completion: {
+            self.currentVC = searchVC
+            completion()
+        })
+    }
+    
+    func dismissToHome(facts: Facts) {
+        let parentVC = currentVC?.presentingViewController as? HomeViewController
+        parentVC?.viewModel.facts = facts
+        currentVC?.dismiss(animated: true, completion: {
+            parentVC?.viewModel.reloadTableView()
+            self.currentVC = parentVC
+        })
     }
 }

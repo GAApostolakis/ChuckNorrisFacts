@@ -56,6 +56,21 @@
                         <constraint firstAttribute="height" constant="36" id="pHH-Vf-teP"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGe-BQ-bRo" userLabel="clearButton">
+                    <rect key="frame" x="20" y="50" width="36" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="AUs-ZJ-I8a"/>
+                        <constraint firstAttribute="width" constant="36" id="nC0-EQ-UqH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="tintColor" name="SubTitles"/>
+                    <state key="normal">
+                        <imageReference key="image" image="clear" catalog="system" symbolScale="large"/>
+                    </state>
+                    <connections>
+                        <action selector="clearButton:" destination="-1" eventType="touchUpInside" id="TCo-qn-J7P"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" name="BackGround"/>
@@ -66,6 +81,8 @@
                 <constraint firstItem="2Lw-S8-ix4" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" constant="-20" id="gFb-nd-UGb"/>
                 <constraint firstItem="goh-Nw-GG4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hmy-0G-HjU"/>
                 <constraint firstItem="PiZ-t3-exr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="110" id="ixP-RK-DQ9"/>
+                <constraint firstItem="2Lw-S8-ix4" firstAttribute="baseline" secondItem="LGe-BQ-bRo" secondAttribute="firstBaseline" constant="8" symbolType="layoutAnchor" id="mN8-e8-cMe"/>
+                <constraint firstItem="LGe-BQ-bRo" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="mXw-bX-IdI"/>
                 <constraint firstItem="bUU-Ha-hZu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="56" id="qeG-aF-pqi"/>
                 <constraint firstItem="goh-Nw-GG4" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-20" id="sZh-NM-qeD"/>
                 <constraint firstItem="PiZ-t3-exr" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="x1Q-h0-3ZD"/>
@@ -76,6 +93,7 @@
     </objects>
     <resources>
         <image name="chuck-norris Logo" width="15" height="15"/>
+        <image name="clear" catalog="system" width="128" height="114"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <namedColor name="BackGround">
             <color red="0.10980392156862745" green="0.11764705882352941" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

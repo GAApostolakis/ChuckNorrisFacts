@@ -17,7 +17,6 @@ struct RepositoryChuckyFacts: Repository {
             case .success (let response):
                 do {
                     let fact = try response.map(Fact.self)
-                    print("Random Request Succssful!")
                     sucessHandler(fact)
                 }
                 catch {
@@ -35,7 +34,6 @@ struct RepositoryChuckyFacts: Repository {
             case .success(let response):
                 do {
                     let fact = try response.map(Fact.self)
-                    print("Category Request Successful!")
                     sucessHandler(fact)
                 }
                 catch {
@@ -53,7 +51,6 @@ struct RepositoryChuckyFacts: Repository {
             case .success(let response):
                 do {
                     let facts = try response.map(Facts.self)
-                    print("Category Request Successful!")
                     sucessHandler(facts)
                 }
                 catch {

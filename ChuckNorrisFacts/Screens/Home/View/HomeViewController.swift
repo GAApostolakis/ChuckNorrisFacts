@@ -46,12 +46,20 @@ class HomeViewController: UIViewController {
         viewModel.presentSearch()
     }
     
+    @IBAction func clearButton(_ sender: UIButton) {
+        viewModel.clearFacts()
+    }
+    
     func setBidings() {
         viewModel.didStartActivity = {[weak self] in
             self?.activityIndicator.startAnimating()
         }
         viewModel.didEndActivity = {[weak self] in
             self?.activityIndicator.stopAnimating()
+        }
+        
+        viewModel.didAddNewData = {[weak self] in
+            self?.factsTableView.reloadData()
         }
     }
     
@@ -66,17 +74,25 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.facts.total
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableCellIdentifier, for: indexPath) as! TableViewCell
+        let fact = viewModel.facts.result[indexPath.row]
+        cell.url = fact.url
+        if !(fact.categories?.isEmpty ?? true) {
+            for categorie in fact.categories! {
+                cell.categoriesLabel?.text = "\(categorie.proper()) | "
+            }
+        }
+        cell.factLabel?.text = fact.value
         return cell
     }
 }
 
 extension HomeViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, estimateHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
 }

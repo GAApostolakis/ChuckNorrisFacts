@@ -8,8 +8,8 @@
 import Foundation
 
 struct Facts: Codable {
-    let total: Int?
-    let result: [Fact]
+    var total = 0
+    var result: [Fact]
 }
 
 struct Fact: Codable {
