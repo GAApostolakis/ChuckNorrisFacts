@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="ChuckNorrisFacts" customModuleProvider="target">
+            <connections>
+                <outlet property="chukyImage" destination="WXa-zr-NFW" id="MHJ-fq-Bf0"/>
+                <outlet property="searchButton" destination="UyF-ct-9nJ" id="FI5-XM-GhJ"/>
+                <outlet property="tableView" destination="fVj-6P-1iO" id="uKS-Fl-k55"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="bZ7-NT-u8A">
+                    <rect key="frame" x="10" y="54" width="394" height="798"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yQd-RS-TpT">
+                            <rect key="frame" x="0.0" y="0.0" width="394" height="150"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Chuck Norris 1" translatesAutoresizingMaskIntoConstraints="NO" id="WXa-zr-NFW">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="150" id="VEB-VH-vb5"/>
+                                        <constraint firstAttribute="height" constant="150" id="YwY-fd-Axc"/>
+                                    </constraints>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UyF-ct-9nJ">
+                                    <rect key="frame" x="165" y="0.0" width="229" height="150"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="24"/>
+                                    <color key="tintColor" systemColor="labelColor"/>
+                                    <state key="normal" title="Search Chuck Facts">
+                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fVj-6P-1iO">
+                            <rect key="frame" x="0.0" y="175" width="394" height="623"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </tableView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="fVj-6P-1iO" firstAttribute="leading" secondItem="bZ7-NT-u8A" secondAttribute="leading" id="2ZQ-WK-KOD"/>
+                        <constraint firstAttribute="trailing" secondItem="fVj-6P-1iO" secondAttribute="trailing" id="GKX-Nm-DsI"/>
+                        <constraint firstItem="yQd-RS-TpT" firstAttribute="leading" secondItem="bZ7-NT-u8A" secondAttribute="leading" id="iWC-HE-1aE"/>
+                        <constraint firstAttribute="trailing" secondItem="yQd-RS-TpT" secondAttribute="trailing" id="t1j-51-VkS"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="bZ7-NT-u8A" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" constant="-10" id="7tq-dq-8sf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bZ7-NT-u8A" secondAttribute="bottom" constant="10" id="JZd-WV-4QQ"/>
+                <constraint firstItem="bZ7-NT-u8A" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="VCh-PS-EG9"/>
+                <constraint firstItem="bZ7-NT-u8A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="qrN-al-CPN"/>
+            </constraints>
+            <point key="canvasLocation" x="-232" y="74"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Chuck Norris 1" width="193.5" height="137.5"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
