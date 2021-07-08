@@ -7,9 +7,7 @@
 import UIKit
 
 extension UIButton {
-    func roundButton() {
-        self.layer.cornerRadius = 20.0
-        self.layer.borderWidth  = 3.0
-        self.layer.borderColor = UIColor.black.cgColor
+    func roundButton(radius: CGFloat) {
+        self.layer.cornerRadius = radius
     }
 }

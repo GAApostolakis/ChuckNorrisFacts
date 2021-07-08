@@ -40,7 +40,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-        setUpBindings()
+        setBindings()
         viewModel.newCategory(parameter: 0)
     }
     //MARK: - Actions
@@ -97,13 +97,13 @@ class SearchViewController: UIViewController {
     
     func setUpUI() {
         searchTextField.colorBorder(UIColor.black.cgColor, radius: 4.0)
-        randomButton.roundButton()
-        categoryButton.roundButton()
+        randomButton.roundButton(radius: randomButton.bounds.height/2)
+        categoryButton.roundButton(radius: randomButton.bounds.height/2)
         categoryLabel.layer.borderColor = UIColor.black.cgColor
         categoryLabel.layer.cornerRadius = 20.0
     }
     
-    func setUpBindings() {
+    func setBindings() {
         viewModel.didStartActivity = {[weak self] in
             self?.activityIndicator.startAnimating()
         }

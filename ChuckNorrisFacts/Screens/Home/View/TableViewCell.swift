@@ -10,6 +10,7 @@ import UIKit
 class TableViewCell: UITableViewCell {
     @IBOutlet weak var factLabel: UILabel!
     @IBOutlet weak var categoriesLabel: UILabel!
+    @IBOutlet weak var globalView: UIView!
     @IBOutlet weak var shareButton: UIButton!
     
     override func awakeFromNib() {

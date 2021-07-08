@@ -3,16 +3,16 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="ChuckNorrisFacts" customModuleProvider="target">
             <connections>
-                <outlet property="chukyImage" destination="WXa-zr-NFW" id="MHJ-fq-Bf0"/>
-                <outlet property="searchButton" destination="UyF-ct-9nJ" id="FI5-XM-GhJ"/>
-                <outlet property="tableView" destination="fVj-6P-1iO" id="uKS-Fl-k55"/>
+                <outlet property="factsTableView" destination="PiZ-t3-exr" id="kb3-aK-a8v"/>
+                <outlet property="searchButton" destination="goh-Nw-GG4" id="qrg-zn-qp4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,60 +21,67 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="bZ7-NT-u8A">
-                    <rect key="frame" x="10" y="54" width="394" height="798"/>
-                    <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yQd-RS-TpT">
-                            <rect key="frame" x="0.0" y="0.0" width="394" height="150"/>
-                            <subviews>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Chuck Norris 1" translatesAutoresizingMaskIntoConstraints="NO" id="WXa-zr-NFW">
-                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="150" id="VEB-VH-vb5"/>
-                                        <constraint firstAttribute="height" constant="150" id="YwY-fd-Axc"/>
-                                    </constraints>
-                                </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UyF-ct-9nJ">
-                                    <rect key="frame" x="165" y="0.0" width="229" height="150"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="24"/>
-                                    <color key="tintColor" systemColor="labelColor"/>
-                                    <state key="normal" title="Search Chuck Facts">
-                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                </button>
-                            </subviews>
-                        </stackView>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fVj-6P-1iO">
-                            <rect key="frame" x="0.0" y="175" width="394" height="623"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        </tableView>
-                    </subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goh-Nw-GG4" userLabel="searchButton">
+                    <rect key="frame" x="169.5" y="767" width="75" height="75"/>
+                    <color key="backgroundColor" red="0.38823529411764707" green="0.51764705882352935" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstItem="fVj-6P-1iO" firstAttribute="leading" secondItem="bZ7-NT-u8A" secondAttribute="leading" id="2ZQ-WK-KOD"/>
-                        <constraint firstAttribute="trailing" secondItem="fVj-6P-1iO" secondAttribute="trailing" id="GKX-Nm-DsI"/>
-                        <constraint firstItem="yQd-RS-TpT" firstAttribute="leading" secondItem="bZ7-NT-u8A" secondAttribute="leading" id="iWC-HE-1aE"/>
-                        <constraint firstAttribute="trailing" secondItem="yQd-RS-TpT" secondAttribute="trailing" id="t1j-51-VkS"/>
+                        <constraint firstAttribute="height" constant="75" id="CIt-SY-s0o"/>
+                        <constraint firstAttribute="width" constant="75" id="Ye8-hf-cWw"/>
                     </constraints>
-                </stackView>
+                    <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal">
+                        <imageReference key="image" image="magnifyingglass" catalog="system" symbolScale="large" renderingMode="template"/>
+                    </state>
+                    <connections>
+                        <action selector="searchPressed:" destination="-1" eventType="touchUpInside" id="OmZ-Ij-4Xz"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PiZ-t3-exr" userLabel="factsTableView">
+                    <rect key="frame" x="0.0" y="110" width="414" height="647"/>
+                    <color key="backgroundColor" name="BackGround"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="separatorColor" name="SubTitles"/>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chuck Noris Facts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bUU-Ha-hZu" userLabel="titleLabel">
+                    <rect key="frame" x="134.5" y="56" width="145.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
+                    <color key="textColor" name="SubTitles"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chuck-norris Logo" translatesAutoresizingMaskIntoConstraints="NO" id="2Lw-S8-ix4" userLabel="logoImage">
+                    <rect key="frame" x="358" y="46" width="36" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="36" id="0JL-T6-Dae"/>
+                        <constraint firstAttribute="height" constant="36" id="pHH-Vf-teP"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" name="BackGround"/>
             <constraints>
-                <constraint firstItem="bZ7-NT-u8A" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" constant="-10" id="7tq-dq-8sf"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="bZ7-NT-u8A" secondAttribute="bottom" constant="10" id="JZd-WV-4QQ"/>
-                <constraint firstItem="bZ7-NT-u8A" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="VCh-PS-EG9"/>
-                <constraint firstItem="bZ7-NT-u8A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="qrN-al-CPN"/>
+                <constraint firstItem="PiZ-t3-exr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RYK-0v-x4h"/>
+                <constraint firstItem="PiZ-t3-exr" firstAttribute="bottom" secondItem="goh-Nw-GG4" secondAttribute="top" constant="-10" id="Rhe-xt-fFF"/>
+                <constraint firstItem="bUU-Ha-hZu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="eCM-yg-Pm0"/>
+                <constraint firstItem="2Lw-S8-ix4" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailing" constant="-20" id="gFb-nd-UGb"/>
+                <constraint firstItem="goh-Nw-GG4" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hmy-0G-HjU"/>
+                <constraint firstItem="PiZ-t3-exr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="110" id="ixP-RK-DQ9"/>
+                <constraint firstItem="bUU-Ha-hZu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="56" id="qeG-aF-pqi"/>
+                <constraint firstItem="goh-Nw-GG4" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="-20" id="sZh-NM-qeD"/>
+                <constraint firstItem="PiZ-t3-exr" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="x1Q-h0-3ZD"/>
+                <constraint firstItem="2Lw-S8-ix4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="46" id="zHT-7U-1Sh"/>
             </constraints>
             <point key="canvasLocation" x="-232" y="74"/>
         </view>
     </objects>
     <resources>
-        <image name="Chuck Norris 1" width="193.5" height="137.5"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="chuck-norris Logo" width="15" height="15"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <namedColor name="BackGround">
+            <color red="0.10980392156862745" green="0.11764705882352941" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SubTitles">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
