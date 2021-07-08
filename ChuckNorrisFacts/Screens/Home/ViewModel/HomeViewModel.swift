@@ -38,10 +38,7 @@ class HomeViewModelImp1: HomeViewModel {
     //MARK: - Methods
     
     func presentSearch() {
-        didStartActivity?()
-        coordinator.presentSearch(facts: facts, completion: {
-            self.didEndActivity?()
-        })
+        coordinator.presentSearch(facts: facts)
     }
     
     func reloadTableView() {
@@ -52,5 +49,4 @@ class HomeViewModelImp1: HomeViewModel {
         facts = Facts(total: 0, result: [])
         didAddNewData?()
     }
-    
 }

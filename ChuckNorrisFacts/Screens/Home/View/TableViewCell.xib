@@ -19,22 +19,25 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="aE7-rR-lzZ" userLabel="quoteStack">
-                        <rect key="frame" x="20" y="0.0" width="334" height="68"/>
+                        <rect key="frame" x="20" y="14" width="334" height="46"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chuck-norris Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Nej-Ie-Eg9">
-                                <rect key="frame" x="0.0" y="11" width="46" height="46"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chuck-norris Logo" translatesAutoresizingMaskIntoConstraints="NO" id="Nej-Ie-Eg9" userLabel="LogoImage">
+                                <rect key="frame" x="0.0" y="0.0" width="46" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="A0p-FO-mO2"/>
                                     <constraint firstAttribute="width" constant="46" id="kSF-eF-cUG"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAy-WI-qre" userLabel="factLabel">
-                                <rect key="frame" x="76" y="34" width="258" height="0.0"/>
+                                <rect key="frame" x="76" y="23" width="258" height="0.0"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                 <color key="textColor" red="0.47450980392156861" green="0.47450980392156861" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="Nej-Ie-Eg9" firstAttribute="top" secondItem="aE7-rR-lzZ" secondAttribute="top" id="RNB-Ng-ffH"/>
+                        </constraints>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categories:" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sjk-yW-fd9">
                         <rect key="frame" x="20" y="62" width="72" height="16.5"/>
@@ -49,7 +52,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="dmB-8C-m8C" userLabel="lineBreak">
-                        <rect key="frame" x="20" y="81" width="334" height="1"/>
+                        <rect key="frame" x="20" y="85" width="334" height="1"/>
                         <viewLayoutGuide key="safeArea" id="NMJ-th-zF8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -76,13 +79,13 @@
                     <constraint firstItem="DYl-2v-njl" firstAttribute="leading" secondItem="sjk-yW-fd9" secondAttribute="trailing" constant="5" id="ADO-Dh-vig"/>
                     <constraint firstItem="aE7-rR-lzZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="BMl-up-kdK"/>
                     <constraint firstItem="sjk-yW-fd9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="DAI-2i-hUo"/>
-                    <constraint firstItem="DYl-2v-njl" firstAttribute="top" secondItem="aE7-rR-lzZ" secondAttribute="bottom" constant="2" id="GxS-BU-Sb2"/>
+                    <constraint firstItem="DYl-2v-njl" firstAttribute="top" secondItem="aE7-rR-lzZ" secondAttribute="bottom" constant="10" id="GxS-BU-Sb2"/>
                     <constraint firstItem="aE7-rR-lzZ" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-20" id="HRG-ap-kib"/>
                     <constraint firstItem="dmB-8C-m8C" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="IuL-e2-HYO"/>
-                    <constraint firstItem="dmB-8C-m8C" firstAttribute="top" secondItem="DYl-2v-njl" secondAttribute="bottom" constant="11" id="KRm-HM-ME4"/>
+                    <constraint firstItem="dmB-8C-m8C" firstAttribute="top" secondItem="DYl-2v-njl" secondAttribute="bottom" constant="15" id="KRm-HM-ME4"/>
                     <constraint firstItem="sjk-yW-fd9" firstAttribute="centerY" secondItem="DYl-2v-njl" secondAttribute="centerY" id="VDs-rM-vA7"/>
                     <constraint firstItem="DYl-2v-njl" firstAttribute="top" secondItem="LMd-aM-Ay5" secondAttribute="bottom" constant="-7" id="cVb-nY-nn4"/>
-                    <constraint firstItem="aE7-rR-lzZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="sY4-Vk-kE4"/>
+                    <constraint firstItem="aE7-rR-lzZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="14" id="sY4-Vk-kE4"/>
                     <constraint firstItem="LMd-aM-Ay5" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-20" id="uav-x2-0rr"/>
                     <constraint firstItem="dmB-8C-m8C" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" constant="-6" id="vel-c6-B3a"/>
                 </constraints>
@@ -91,7 +94,6 @@
             <connections>
                 <outlet property="categoriesLabel" destination="DYl-2v-njl" id="Wpm-Zc-1a1"/>
                 <outlet property="factLabel" destination="TAy-WI-qre" id="HDJ-3N-puB"/>
-                <outlet property="urlImage" destination="Nej-Ie-Eg9" id="GON-8Z-oMF"/>
             </connections>
             <point key="canvasLocation" x="-49.275362318840585" y="115.17857142857142"/>
         </tableViewCell>

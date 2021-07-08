@@ -10,7 +10,6 @@ import UIKit
 class TableViewCell: UITableViewCell {
     @IBOutlet weak var factLabel: UILabel!
     @IBOutlet weak var categoriesLabel: UILabel!
-    @IBOutlet weak var urlImage: UIImageView!
     
     var url:URL?
     

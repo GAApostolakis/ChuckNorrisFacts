@@ -157,11 +157,11 @@
 		C8F9544A2690E8A800D2E9D4 /* ChuckNorrisFacts */ = {
 			isa = PBXGroup;
 			children = (
-				C8C8E87E26970DB500698616 /* Assets.xcassets */,
 				C8F954F3269476BA00D2E9D4 /* Extension */,
 				C8F954D826938C7300D2E9D4 /* Screens */,
 				C8F954C726938BBD00D2E9D4 /* Coordinator */,
 				C8F95490269134A200D2E9D4 /* Network */,
+				C8C8E87E26970DB500698616 /* Assets.xcassets */,
 				C8F9544B2690E8A800D2E9D4 /* AppDelegate.swift */,
 				C8F9544D2690E8A800D2E9D4 /* SceneDelegate.swift */,
 				C8F954562690E8AC00D2E9D4 /* LaunchScreen.storyboard */,

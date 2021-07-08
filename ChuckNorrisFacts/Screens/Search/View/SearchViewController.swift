@@ -42,6 +42,7 @@ class SearchViewController: UIViewController {
         setUpUI()
         setBindings()
         viewModel.newCategory(parameter: 0)
+        view.addSubview(activityIndicator)
     }
     //MARK: - Actions
     
@@ -50,38 +51,24 @@ class SearchViewController: UIViewController {
     }
     
     @IBAction func changeCategory(_ sender: UIButton) {
-//        UIView.animate(withDuration: 0.25) {
-//            self.categoryLabel.transform = CGAffineTransform(translationX: 300, y: 0)
-////            self.categoryLabel.frame = CGRect(x: 600, y: self.categoryLabel.bounds.midY, width: self.categoryLabel.frame.width, height: self.categoryLabel.frame.height)
-//        }
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-//            self.categoryLabel.transform = CGAffineTransform(translationX: -600, y: 0)
-//            self.viewModel.newCategory(parameter: sender.tag)
-//            self.fromLeft()
-//        }
-//        UIView.animateKeyframes(withDuration: 1, delay: 0, options: .calculationModeLinear) {
-//            UIView.addKeyframe(withRelativeStartTime: <#T##Double#>, relativeDuration: <#T##Double#>, animations: <#T##() -> Void#>)
-//        } completion: { (<#Bool#>) in
-//            <#code#>
-//        }
-        UIView.animate(withDuration: 0.25) {
-            self.categoryLabel.transform = CGAffineTransform(translationX: 300, y: 0)
-        } completion: { (completed) in
-            self.categoryLabel.transform = CGAffineTransform(translationX: -600, y: 0)
-            self.viewModel.newCategory(parameter: sender.tag)
-            self.fromLeft()
-        }
-//        UIView.animate(withDuration: 0.25, delay: 0.5, options: .curveLinear) {
-//            self.categoryLabel.transform = .identity
-//        } completion: { (_) in
-//        }
-//        viewModel.newCategory(parameter: sender.tag)
-    }
-    
-    func fromLeft () {
-        UIView.animate(withDuration: 0.25) {
-            self.categoryLabel.transform = .identity
-//            self.categoryLabel.frame = CGRect(x: 600, y: self.categoryLabel.bounds.midY, width: self.categoryLabel.frame.width, height: self.categoryLabel.frame.height)
+        //To the Right
+        if sender.tag == 1{
+            UIView.animate(withDuration: 0.25) {
+                self.categoryLabel.transform = CGAffineTransform(translationX: 300, y: 0)
+            } completion: { (completed) in
+                self.categoryLabel.transform = CGAffineTransform(translationX: -600, y: 0)
+                self.viewModel.newCategory(parameter: sender.tag)
+                self.toTheMiddle()
+            }
+        } //To the Left
+        else if sender.tag == (-1) {
+            UIView.animate(withDuration: 0.25) {
+                self.categoryLabel.transform = CGAffineTransform(translationX: -300, y: 0)
+            } completion: { (completed) in
+                self.categoryLabel.transform = CGAffineTransform(translationX: 600, y: 0)
+                self.viewModel.newCategory(parameter: sender.tag)
+                self.toTheMiddle()
+            }
         }
     }
     
@@ -95,14 +82,18 @@ class SearchViewController: UIViewController {
     
     //MARK: - Methods
     
+    func toTheMiddle () {
+        UIView.animate(withDuration: 0.25) {
+            self.categoryLabel.transform = .identity
+        }
+    }
+    
     func setUpUI() {
         hideKeyboardWhenTapHappens()
-        searchTextField.delegate = self
         searchTextField.colorBorder(UIColor.systemBackground.cgColor, radius: searchTextField.bounds.height/2)
         randomButton.roundButton(radius: randomButton.bounds.height/2)
         categoryButton.roundButton(radius: categoryButton.bounds.height/2)
         searchButton.roundButton(radius: searchButton.bounds.height/2)
-        categoryLabel.layer.cornerRadius = categoryLabel.bounds.height/2
     }
     
     func setBindings() {
@@ -113,6 +104,7 @@ class SearchViewController: UIViewController {
             self?.activityIndicator.stopAnimating()
         }
         viewModel.changeCategory = {[weak self] category in
+            //Capitalize First letter
             self?.categoryLabel.text = category.proper()
         }
         viewModel.didFailToFetch = {[weak self] errorMessage in
@@ -123,9 +115,3 @@ class SearchViewController: UIViewController {
     }
 }
 
-extension SearchViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        resignFirstResponder()
-        return true
-    }
-}

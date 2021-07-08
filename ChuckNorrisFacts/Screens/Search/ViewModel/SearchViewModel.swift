@@ -42,10 +42,8 @@ final class SearchViewModelImp1: SearchViewModel {
         didStartActivity?()
         repository.fetchRandom(sucessHandler: {[weak self] fact in
             self?.didEndActivity?()
-            self?.facts.result.append(fact)
             self?.facts.total += 1
-            let safeFacts = Facts(total: 1, result: [fact])
-            self?.facts.result.insert(contentsOf: safeFacts.result, at: 0)
+            self?.facts.result.insert(fact, at: 0)
             if let safeFacts = self?.facts {
                 self?.coordinator.dismissToHome(facts: safeFacts)
             }
@@ -57,10 +55,11 @@ final class SearchViewModelImp1: SearchViewModel {
     
     func newCategory(parameter: Int){
         didStartActivity?()
-        index = index + parameter
+        index = index + parameter //Parameter +1 when Right Arrow is pressed and -1 when left arrow is pressed
+        //If is at the beginning at the array and need to move back Go to the end
         if index < 0 {
             index = 15
-        }
+        } // if its at the end of the array and need to move foward Go to the beginning
         else if index > 15 {
             index = 0
         }
@@ -73,8 +72,7 @@ final class SearchViewModelImp1: SearchViewModel {
         didStartActivity?()
         repository.fetchCategory(category: categoriesList.categories[index], sucessHandler: {[weak self] fact in
             self?.didEndActivity?()
-            let safeFacts = Facts(total: 1, result: [fact])
-            self?.facts.result.insert(contentsOf: safeFacts.result, at: 0)
+            self?.facts.result.insert(fact, at: 0)
             self?.facts.total += 1
             if let safeFacts = self?.facts {
                 self?.coordinator.dismissToHome(facts: safeFacts)

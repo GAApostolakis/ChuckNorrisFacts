@@ -26,13 +26,12 @@ class AppCoordinator: Coordinator {
         window.makeKeyAndVisible()
     }
     
-    func presentSearch (facts: Facts, completion: @escaping () -> Void) {
+    func presentSearch (facts: Facts) {
         let viewModel = SearchViewModelImp1(repository: repository, coordinator: self, facts: facts)
         let searchVC = SearchViewController(viewModel: viewModel)
         searchVC.modalPresentationStyle = .popover
         currentVC?.present(searchVC, animated: true, completion: {
             self.currentVC = searchVC
-            completion()
         })
     }
     
