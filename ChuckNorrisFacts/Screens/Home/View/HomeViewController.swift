@@ -41,6 +41,7 @@ class HomeViewController: UIViewController {
         setBidings()
         setTableView()
         view.addSubview(activityIndicator)
+
     }
     //MARK: - Actions
     
