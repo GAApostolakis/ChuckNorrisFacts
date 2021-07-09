@@ -6,6 +6,6 @@ target 'ChuckNorrisFacts' do
   use_frameworks!
 
   # Pods for ChuckNorrisFacts
-	pod 'Moya/RxSwift'
+	pod 'Moya'
 
 end
